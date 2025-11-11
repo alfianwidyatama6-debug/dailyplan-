@@ -1,11 +1,22 @@
-/* Kita gunakan bg-gray-100 dari Tailwind, tapi ini untuk contoh */
+/* ------------------------------------------- */
+/* Gaya Dasar & Transisi Kustom */
+/* ------------------------------------------- */
+
+/* Impor Font Inter (Font default modern) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
 body {
-    font-family: 'Inter', sans-serif; /* Kamu bisa impor font jika mau */
+    font-family: 'Inter', sans-serif;
+    /* Efek scrolling yang lebih halus */
+    scroll-behavior: smooth;
+    /* Atur background gradient lembut */
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    min-height: 100vh;
 }
 
-/* Kelas kustom untuk animasi atau style yang sulit di-handle Tailwind */
+/* Animasi saat tugas baru dimasukkan */
 .task-item-enter {
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
@@ -17,4 +28,66 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Gaya untuk pop-up atau modal yang akan datang */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Penyesuaian Komponen (Checkbox) */
+.task-toggle {
+    transition: transform 0.1s ease;
+}
+
+.task-toggle:checked {
+    /* Sedikit efek scale saat dicek */
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); /* Shadow biru */
+}
+
+/* ------------------------------------------- */
+/* Gaya Bar Chart Kustom (Pengganti Chart.js) */
+/* ------------------------------------------- */
+
+/* Animasi untuk batang progres saat dimuat */
+.bar-fill {
+    transition: width 1.5s ease-out;
+    /* Inisialisasi width 0 untuk animasi */
+    width: 0; 
+}
+
+/* Pastikan container chart terlihat rapi */
+#weekly-chart-container {
+    padding: 10px 0;
+}
+
+/* Gaya untuk setiap item hari */
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Gaya untuk label hari */
+.progress-label {
+    width: 60px; /* Lebar tetap untuk konsistensi */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
 }
