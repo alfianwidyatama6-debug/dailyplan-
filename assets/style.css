@@ -1,0 +1,20 @@
+/* Kita gunakan bg-gray-100 dari Tailwind, tapi ini untuk contoh */
+body {
+    font-family: 'Inter', sans-serif; /* Kamu bisa impor font jika mau */
+}
+
+/* Kelas kustom untuk animasi atau style yang sulit di-handle Tailwind */
+.task-item-enter {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
